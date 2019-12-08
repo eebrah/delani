@@ -1,0 +1,25 @@
+.portfolio,
+.what {
+    display: block; /*
+    grid-template-columns: 1fr; */
+}
+
+.welcome {
+    background-position: -52em 0;
+}
+
+.services {
+    background-position: -37em 0;
+}
+
+.contact {
+    padding: 1em;
+}
+
+dialog {
+    width: 100vw;
+}
+
+footer {
+    padding: 1em;
+}

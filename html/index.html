@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimal-ui" />
+        <title>delani studios</title>
+        <link rel="stylesheet"
+              href="css/styles.css" />
+        <link rel="stylesheet" 
+              media="screen and (max-device-width: 540px)" 
+              href="css/mobile.css" />
+        <link rel="stylesheet" 
+              media="screen and (max-device-width: 1024px)" 
+              href="css/tablet.css" />
+        <link rel="stylesheet" 
+              media="screen and (max-device-width: 1920px)" 
+              href="css/desktop.css" />
+    </head>
+    <body>
+        <main>
+            <section class="welcome">
+                <img src="images/logo.png" alt="logo" />
+                <h1>welcome to delani studios</h1>
+                <h2>amazing people are making amazing designs in an fun environment</h2>
+                <img src="images/mouse_click.png" alt="mouse" />
+            </section>
+            <section class="about">
+                <h1>about us</h1>
+                <p>When you work with us,you are a team of committed collaborators.</p>
+                <p>All aspects pf our software development process are intergrated, interactive and agile.</p>
+                <p>Our approach unifies design,development and product management to create exceptional products</p>
+                <p>We start each projecr by understanding your business goals, user's needs and the product requirements</p>
+                <p>Then we help translate them into effective and elegant solutions</p>
+            </section>
+            <section class="services">
+                <h1>services</h1>
+                <p>Before we sign a contract or write a line of code our team will spend necessary time to understand your product vision.</p>
+                <p>The outcome of this scoping session is a proposal of high-level statement of work.</p>
+                <p>Based on your requirement, we can provide a complete offering or just the pieces you need.</p>
+            </section>
+            <section class="what">
+                <h1>what we do</h1>
+                <div id="design">
+                    <a href="#design">
+                        <img src="images/design_icon.png" alt="" />
+                    </a>
+                    <h1>design</h1>
+                    <p>Our design practice offers a full range of services including brand strategy, andvisual design and user experience testing.Throughout your project, our designers create and implement visual design and workflows, solicit gets built is what is needed.</p>
+                </div>
+                <div id="development">
+                    <a href="#development">
+                        <img src="images/dev_icon.png" alt="" />
+                    </a>
+                    <h1>development</h1>
+                    <p>All engineers are fluent in the latest enterprise, mobile and web development technologies. They collaborate with your team to write, and improve code on a daily basis, using proven practices such as test-driven development and pair programming.</p>
+                </div>
+                <div id="management">
+                    <a href="#management">
+                        <img src="images/product_icon.png" alt="" />
+                    </a>
+                    <h1>product management</h1>
+                    <p>Planning and development is iterative. Because we are constantly coding and testing, the products we build are always ready to go live. This iterative process allows for changes as business requirements evolve.</p>
+                </div>
+            </section>
+            <section class="portfolio">
+                <div data-name="work 01">
+                    <img src="images/work1.jpg" alt="" />
+                    <!-- <p>work 1</p> -->
+                </div>
+                <div data-name="work 02">
+                    <img src="images/work2.jpg" alt="" />
+                </div>
+                <div data-name="work 03">
+                    <img src="images/work3.jpg" alt="" />
+                </div>
+                <div data-name="work 04">
+                    <img src="images/work4.jpg" alt="" />
+                </div>
+                <div data-name="work 05">
+                    <img src="images/work5.jpg" alt="" />
+                </div>
+                <div data-name="work 06">
+                    <img src="images/work6.jpg" alt="" />
+                </div>
+                <div data-name="work 07">
+                    <img src="images/work7.jpg" alt="" />
+                </div>
+                <div data-name="work 08">
+                    <img src="images/work8.jpg" alt="" />
+                </div>
+            </section>
+            <section class="contact">
+                <h1>contact us</h1>
+                <form action="">
+                    <input type="text" name="name" placeholder="name" required="required" />
+                    <input type="email" name="email" placeholder="email" required="required" />
+                    <textarea name="body" placeholder="your message here" required="required" ></textarea>
+                    <input type="submit" value="submit" />
+                </form>
+            </section>
+        </main>
+        <footer>
+            <ul>
+                <li>
+                    <img src="/images/twitter.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/dribble.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/facebook.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/googleplus.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/skype.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/stumbleupon.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/behance.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/pinterest.png" alt="" />
+                </li>
+                <li>
+                    <img src="/images/flickr.png" alt="" />
+                </li>
+            <ul>
+            <p>delani studios</p> 
+            <p>2019</p>
+        </footer>
+        <dialog>
+            <h1>notice <a href="/">X</a></h1>
+            <p>We have received your message, thank you for reaching out to us</p>
+        </dialog>
+        <script>
+document.querySelector('.contact form')
+    .addEventListener(
+      'submit'
+    , event => {
+        event.preventDefault();
+
+        let dialog = document.querySelector('dialog');
+
+        let data = new FormData(event.target);
+        let message = 'We have received your message ' + data.get('name') + ', thank you for reaching out to us';        
+
+        dialog.querySelector('p')
+            .innerText = message;
+
+        dialog.querySelector('a[href="/"]')
+            .addEventListener(
+                  'click'
+                , event => {
+                    event.preventDefault();
+
+                    dialog.close();
+                }
+            );
+
+        dialog.showModal();
+    }
+);
+
+document.querySelectorAll('main > section.what > div')
+    .forEach(
+        href => {
+            href.addEventListener(
+                  'click'
+                , event => {
+                    event.preventDefault();
+
+                    event.target.closest('div').classList.toggle('target');
+                }
+            );
+        }
+    );
+
+document.querySelectorAll('main > section.portfolio > div')
+    .forEach(
+        div => {
+            div.addEventListener(
+                  'mouseenter'
+                , event => {
+                    event.preventDefault();
+
+                    event.target.closest('div').classList.add('hover');
+                }
+            );
+
+            div.addEventListener(
+                  'mouseleave'
+                , event => {
+                    event.preventDefault();
+
+                    event.target.closest('div').classList.remove('hover');
+                }
+            );
+        }
+    );
+        </script>
+    </body>
+</html>
