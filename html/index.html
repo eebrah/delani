@@ -64,30 +64,30 @@
                 </div>
             </section>
             <section class="portfolio">
-                <div data-name="work 01">
-                    <img src="images/work1.jpg" alt="" />
-                    <!-- <p>work 1</p> -->
+                <div data-name="work 01" style="background-image: url('images/work1.jpg');">
+                    <!--<img src="images/work1.jpg" alt="" />-->
+                    <!--<p style="background-color: rgba(255, 255, 255, 0.7);">work 1</p>-->
                 </div>
-                <div data-name="work 02">
-                    <img src="images/work2.jpg" alt="" />
+                <div data-name="work 02" style="background-image: url('images/work2.jpg');">
+                    <!--<img src="images/work2.jpg" alt="" />-->
                 </div>
-                <div data-name="work 03">
-                    <img src="images/work3.jpg" alt="" />
+                <div data-name="work 03" style="background-image: url('images/work3.jpg');">
+                    <!--<img src="images/work3.jpg" alt="" />-->
                 </div>
-                <div data-name="work 04">
-                    <img src="images/work4.jpg" alt="" />
+                <div data-name="work 04" style="background-image: url('images/work4.jpg');">
+                    <!--<img src="images/work4.jpg" alt="" />-->
                 </div>
-                <div data-name="work 05">
-                    <img src="images/work5.jpg" alt="" />
+                <div data-name="work 05" style="background-image: url('images/work5.jpg');">
+                    <!--<img src="images/work5.jpg" alt="" />-->
                 </div>
-                <div data-name="work 06">
-                    <img src="images/work6.jpg" alt="" />
+                <div data-name="work 06" style="background-image: url('images/work6.jpg');">
+                    <!--<img src="images/work6.jpg" alt="" />-->
                 </div>
-                <div data-name="work 07">
-                    <img src="images/work7.jpg" alt="" />
+                <div data-name="work 07" style="background-image: url('images/work7.jpg');">
+                    <!--<img src="images/work7.jpg" alt="" />-->
                 </div>
-                <div data-name="work 08">
-                    <img src="images/work8.jpg" alt="" />
+                <div data-name="work 08" style="background-image: url('images/work8.jpg');">
+                    <!--<img src="images/work8.jpg" alt="" />-->
                 </div>
             </section>
             <section class="contact">
@@ -103,105 +103,117 @@
         <footer>
             <ul>
                 <li>
-                    <img src="/images/twitter.png" alt="" />
+                    <img src="images/twitter.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/dribble.png" alt="" />
+                    <img src="images/dribble.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/facebook.png" alt="" />
+                    <img src="images/facebook.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/googleplus.png" alt="" />
+                    <img src="images/googleplus.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/skype.png" alt="" />
+                    <img src="images/skype.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/stumbleupon.png" alt="" />
+                    <img src="images/stumbleupon.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/behance.png" alt="" />
+                    <img src="images/behance.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/pinterest.png" alt="" />
+                    <img src="images/pinterest.png" alt="" />
                 </li>
                 <li>
-                    <img src="/images/flickr.png" alt="" />
+                    <img src="images/flickr.png" alt="" />
                 </li>
             <ul>
             <p>delani studios</p> 
             <p>2019</p>
         </footer>
-        <dialog>
-            <h1>notice <a href="/">X</a></h1>
-            <p>We have received your message, thank you for reaching out to us</p>
-        </dialog>
+        <div class="overlay">
+            <dialog>
+                <h1>notice <a href="/">X</a></h1>
+                <p>We have received your message, thank you for reaching out to us</p>
+            </dialog>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
         <script>
-document.querySelector('.contact form')
-    .addEventListener(
-      'submit'
-    , event => {
-        event.preventDefault();
+const dialog_showModal = () => {
+    document.querySelector('.overlay')
+        .classList
+        .add('open');
 
-        let dialog = document.querySelector('dialog');
+    document.querySelector('.overlay dialog')
+        .setAttribute('open', '');
+};
 
-        let data = new FormData(event.target);
-        let message = 'We have received your message ' + data.get('name') + ', thank you for reaching out to us';        
+const dialog_close = () => {
+    document.querySelector('.overlay.open')
+        .classList
+        .remove('open');
+};
 
-        dialog.querySelector('p')
-            .innerText = message;
+const mouseleave_handler = event => {
+    event.preventDefault();
 
-        dialog.querySelector('a[href="/"]')
-            .addEventListener(
-                  'click'
-                , event => {
-                    event.preventDefault();
+    event.target
+        .closest('div')
+        .classList
+        .remove('hover');
+}
 
-                    dialog.close();
-                }
-            );
+const mouseenter_handler = event => {
+    event.preventDefault();
 
-        dialog.showModal();
-    }
-);
+    event.target
+        .closest('div')
+        .classList
+        .add('hover');
+}
 
-document.querySelectorAll('main > section.what > div')
-    .forEach(
-        href => {
-            href.addEventListener(
-                  'click'
-                , event => {
-                    event.preventDefault();
+const what_click_handler = event => {
+    event.preventDefault();
 
-                    event.target.closest('div').classList.toggle('target');
-                }
-            );
-        }
-    );
+    event.target.closest('div').classList.toggle('target');
+}
 
-document.querySelectorAll('main > section.portfolio > div')
-    .forEach(
-        div => {
-            div.addEventListener(
-                  'mouseenter'
-                , event => {
-                    event.preventDefault();
+const form_submit_handler = event => {
+    event.preventDefault();
 
-                    event.target.closest('div').classList.add('hover');
-                }
-            );
+    let dialog = document.querySelector('dialog');
 
-            div.addEventListener(
-                  'mouseleave'
-                , event => {
-                    event.preventDefault();
+    let data = new FormData(event.target);
+    let message = 'We have received your message ' + data.get('name') + ', thank you for reaching out to us';        
 
-                    event.target.closest('div').classList.remove('hover');
-                }
-            );
-        }
-    );
+    dialog.querySelector('p')
+        .innerText = message;
+
+    dialog.querySelector('a[href="/"]')
+        .addEventListener(
+              'click'
+            , event => {
+                event.preventDefault();
+
+                dialog_close();
+            }
+        );
+
+    dialog_showModal();
+}
+
+$('.contact form')
+    .submit(form_submit_handler);
+
+$('main > section.what > div')
+    .click(what_click_handler);
+
+$('main > section.portfolio > div')
+    .mouseenter(mouseenter_handler)
+    .mouseleave(mouseleave_handler);
+
         </script>
     </body>
 </html>
